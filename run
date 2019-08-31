@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Hngl\Snakes\Console\PlayCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$command =new PlayCommand();
+$application->add($command);
+$application->setDefaultCommand($command->getName());
+
+
+// ... register commands
+
+$application->run();

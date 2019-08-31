@@ -1,0 +1,17 @@
+{
+    "name": "jurriaan/snakes",
+    "description": "Snakes and Ladders",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jurriaan van Hengel",
+            "email": "15790266+hngl@users.noreply.github.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": { "Hngl\\Snakes\\": "src/" }
+    },
+    "require": {}
+}
