@@ -1,9 +1,7 @@
 <?php
 
-
 namespace Hngl\Snakes\Console;
 
-use Hngl\Snakes\Game\Board;
 use Hngl\Snakes\Game\Game;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,12 +19,12 @@ class PlayCommand extends Command
             17, null, 5, null, null,
             null, 18, 10, null, null,
             null, null, null, 23, 15,
-            null, null, null, 16, null
+            null, null, null, 16, null,
         ];
 
         $game = new Game($board);
 
-        while(!$game->isDone()) {
+        while (!$game->isDone()) {
             $output->writeln($game->doTurn());
         }
         $output->writeln('Game over');

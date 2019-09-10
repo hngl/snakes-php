@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Hngl\Snakes\Game;
 
 class Game
@@ -16,7 +15,8 @@ class Game
         $this->currentIndex = 0;
     }
 
-    public function isDone() {
+    public function isDone()
+    {
         return $this->currentIndex > 24;
     }
 
@@ -25,24 +25,27 @@ class Game
         $throw = $this->throwDice();
         $newIndex = $this->currentIndex + $throw;
 
-        if($this->isStable($newIndex)) {
+        if ($this->isStable($newIndex)) {
             $this->currentIndex = $newIndex;
-            return sprintf("Player threw %s, moved to square %d", $throw, $this->currentIndex + 1);
+
+            return sprintf('Player threw %s, moved to square %d', $throw, $this->currentIndex + 1);
         }
 
-        if($this->hasSnake($newIndex)) {
+        if ($this->hasSnake($newIndex)) {
             $this->currentIndex = $this->board[$newIndex] - 1;
+
             return sprintf("Player threw %s --I'VE HAD IT WITH THESE SNAKES!-- moved to square %d", $throw, $this->currentIndex + 1);
         }
-        if($this->hasLadder($newIndex)) {
+        if ($this->hasLadder($newIndex)) {
             $this->currentIndex = $this->board[$newIndex] - 1;
-            return sprintf("Player threw %s --GOING UP!-- moved to square %d", $throw, $this->currentIndex + 1);
+
+            return sprintf('Player threw %s --GOING UP!-- moved to square %d', $throw, $this->currentIndex + 1);
         }
     }
 
     private function throwDice()
     {
-        return \random_int(1,6);
+        return \random_int(1, 6);
     }
 
     private function hasSnake($index)
